@@ -1,17 +1,11 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
 import "./globals.css";
+import { Toaster } from "@/components/ui/toaster";
+import Providers from "@/core/provider";
+import Navbar from "@/components/spandana/navbar";
+import Footer from "@/components/spandana/footer";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
+// import { GoogleOAuthProvider } from "@react-oauth/google";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -23,12 +17,19 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const clientId = process.env.GOOGLE_CLIENT_ID || "";
+  console.log(clientId);
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+      <body>
+        <Providers>
+          {/* <GoogleOAuthProvider clientId={clientId}> */}
+          <Navbar />
+          <main>{children}</main>
+          <Footer />
+          {/* </GoogleOAuthProvider> */}
+          <Toaster />
+        </Providers>
       </body>
     </html>
   );
