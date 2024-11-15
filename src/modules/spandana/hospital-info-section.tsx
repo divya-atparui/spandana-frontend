@@ -1,39 +1,54 @@
 import { Mail, MapPin, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Separator } from "../ui/separator";
+import { Separator } from "../../components/ui/separator";
 
 export default function HospitalInfoSection() {
   return (
     <div className="w-full">
       {/* Contact Information Bar */}
-      <div className="container mx-auto py-4">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-center justify-items-center text-center md:text-left">
-          <div className="flex items-center gap-2">
-            <Phone className="h-5 w-5 text-sky-400" />
-            <div>
-              <p className="text-sm text-muted-foreground">Give us a Call</p>
-              <p className="font-medium">+91 8559225919</p>
+      <div className="container mx-auto py-8 px-4 bg-gray-50 rounded-lg shadow-lg mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center justify-items-center text-center md:text-left">
+          {/* Phone Section */}
+          <div className="flex flex-col items-center md:items-start gap-4 p-6 bg-white rounded-lg shadow-md hover:shadow-xl transition duration-300 ease-in-out">
+            <div className="flex items-center justify-center md:justify-start gap-3">
+              <Phone className="h-6 w-6 text-sky-500" />
+              <div>
+                <p className="text-sm text-gray-500">Give us a message</p>
+                <p className="text-lg font-semibold text-gray-800">
+                  +91 8559225919
+                </p>
+              </div>
             </div>
           </div>
-          <div className="flex items-center gap-2">
-            <Mail className="h-5 w-5 text-sky-400" />
-            <div>
-              <p className="text-sm text-muted-foreground">Send us a Message</p>
-              <p className="font-medium">care@spandanahospital.com</p>
+
+          {/* Email Section */}
+          <div className="flex flex-col items-center md:items-start gap-4 p-6 bg-white rounded-lg shadow-md hover:shadow-xl transition duration-300 ease-in-out">
+            <div className="flex items-center justify-center md:justify-start gap-3">
+              <Mail className="h-6 w-6 text-sky-500" />
+              <div>
+                <p className="text-sm text-gray-500">Send us a Message</p>
+                <p className="text-lg font-semibold text-gray-800">
+                  care@spandanahospital.com
+                </p>
+              </div>
             </div>
           </div>
-          <div className="flex items-center gap-2">
-            <MapPin className="h-5 w-5 text-sky-400" />
-            <div>
-              <p className="text-sm text-muted-foreground">
-                Visit our Location
-              </p>
-              <p className="font-medium">Parthasaradhi Nagar, Dharmavaram</p>
+
+          {/* Location Section */}
+          <div className="flex flex-col items-center md:items-start gap-4 p-6 bg-white rounded-lg shadow-md hover:shadow-xl transition duration-300 ease-in-out">
+            <div className="flex items-center justify-center md:justify-start gap-3">
+              <MapPin className="h-6 w-6 text-sky-500" />
+              <div>
+                <p className="text-sm text-gray-500">Visit our Location</p>
+                <p className="text-lg font-semibold text-gray-800">
+                  Parthasaradhi Nagar, Dharmavaram
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <Separator className='my-4'/>
+  
 
       {/* Services Information */}
       <div className="grid grid-cols-1 md:grid-cols-3">
@@ -96,7 +111,7 @@ export default function HospitalInfoSection() {
           </Button>
         </div>
       </div>
-      <Separator className='my-4'/>
+      <Separator className="my-4" />
 
       {/* Dedicated Care Section */}
       <div className="container mx-auto py-16 px-4">

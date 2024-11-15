@@ -1,3 +1,4 @@
+
 "use client"
 import Image from "next/image"
 import Link from "next/link"
@@ -9,10 +10,18 @@ import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/comp
 import { departments } from "@/mocks/departments"
 import Autoplay from "embla-carousel-autoplay"
 import { useRef } from "react"
+import { useGetAllDepartments } from "@/api/departments"
 
 
 
 export default function ServicesSection() {
+
+  const {data} = useGetAllDepartments({
+    variables:{
+      tenantId: "spandana"
+    }
+  })
+  console.log(data)
 
   const plugin = useRef(
     Autoplay({ delay: 2000, stopOnInteraction: true })

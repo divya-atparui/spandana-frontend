@@ -1,5 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  experimental: {
+    // The experimental feature "experimental.dynamicIO" can only be enabled when using the latest canary version of Next.js
+    // dynamicIO: true,
+    staleTimes: {
+      dynamic: 5000,
+    },
+  },
   typescript: {
     // !! WARN !!
     // Dangerously allow production builds to successfully complete even if

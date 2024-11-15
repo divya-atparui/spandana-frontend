@@ -1,34 +1,34 @@
-"use client";
+"use client"
 
-import { useState, useEffect } from "react";
-import Image from "next/image";
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
+import { useState, useEffect } from "react"
+import Image from "next/image"
+import Link from "next/link"
+import { Button } from "@/components/ui/button"
 import {
   Sheet,
   SheetContent,
   SheetTitle,
   SheetTrigger,
-} from "@/components/ui/sheet";
-import { cn } from "@/lib/utils";
-import { Menu, X } from "lucide-react";
-import { Separator } from "../ui/separator";
+} from "@/components/ui/sheet"
+import { cn } from "@/lib/utils"
+import { Menu, X } from "lucide-react"
+import { Separator } from "@/components/ui/separator"
 
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
-  const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false)
+  const [isOpen, setIsOpen] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
-      const isScrolled = window.scrollY > 20;
+      const isScrolled = window.scrollY > 20
       if (isScrolled !== scrolled) {
-        setScrolled(isScrolled);
+        setScrolled(isScrolled)
       }
-    };
+    }
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [scrolled]);
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [scrolled])
 
   const navItems = [
     { href: "/", label: "Home" },
@@ -36,21 +36,21 @@ export default function Navbar() {
     { href: "/doctors", label: "Our Doctors" },
     { href: "/services", label: "Services" },
     { href: "/contact", label: "Contact" },
-  ];
+  ]
 
   return (
     <header
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 ",
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 font-sans",
         scrolled ? "bg-white shadow-md shadow-black/30" : "bg-blue-950"
       )}
     >
       <div className="container mx-auto px-4">
         <nav className="flex items-center justify-between h-20 gap-10">
-          <div className=" bg-white rounded-lg border border-white-500/50 lg:border-0 ">
+          <div className="bg-white rounded-lg border border-white-500/50 lg:border-0">
             <Link href="/" className="flex items-center">
               <Image
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-LXrMcHwIkVObjVrnubwZ3i0X0sHEIF.png"
+                src="/spandana_telugu.png"
                 alt="Spandana Hospital Logo"
                 width={180}
                 height={50}
@@ -65,8 +65,8 @@ export default function Navbar() {
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  "text-sm font-medium transition-colors hover:text-blue-600",
-                  scrolled ? "text-gray-600" : "text-white"
+                  "text-base font-medium transition-colors hover:text-blue-600",
+                  scrolled ? "text-gray-700" : "text-white"
                 )}
               >
                 {item.label}
@@ -74,9 +74,9 @@ export default function Navbar() {
             ))}
             <Button
               asChild
-              className="bg-blue-600 hover:bg-blue-700 text-white rounded-md px-6"
+              className="bg-blue-600 hover:bg-blue-700 text-white rounded-md px-6 text-base"
             >
-              <Link href="/book">Book Appointment</Link>
+              <Link href="/">Book Appointment</Link>
             </Button>
           </div>
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
@@ -91,21 +91,21 @@ export default function Navbar() {
                   <X
                     className={cn(
                       "h-6 w-6",
-                      scrolled ? "text-gray-600" : "text-white"
+                      scrolled ? "text-gray-700" : "text-white"
                     )}
                   />
                 ) : (
                   <Menu
                     className={cn(
                       "h-12 w-12",
-                      scrolled ? "text-gray-600" : "text-black"
+                      scrolled ? "text-gray-700" : "text-white"
                     )}
                   />
                 )}
               </Button>
             </SheetTrigger>
             <SheetContent side="right" className="w-[300px] sm:w-[400px]">
-              <SheetTitle className="text-lg font-light">Menu</SheetTitle>
+              <SheetTitle className="text-xl font-medium">Menu</SheetTitle>
               <Separator className="my-4" />
               <nav className="flex flex-col gap-4">
                 {navItems.map((item) => (
@@ -120,9 +120,9 @@ export default function Navbar() {
                 ))}
                 <Button
                   asChild
-                  className="bg-blue-600 hover:bg-blue-700 text-white rounded-md px-6 w-full"
+                  className="bg-blue-600 hover:bg-blue-700 text-white rounded-md px-6 w-full text-base"
                 >
-                  <Link href="/book" onClick={() => setIsOpen(false)}>
+                  <Link href="/" onClick={() => setIsOpen(false)}>
                     Book Appointment
                   </Link>
                 </Button>
@@ -132,5 +132,5 @@ export default function Navbar() {
         </nav>
       </div>
     </header>
-  );
+  )
 }

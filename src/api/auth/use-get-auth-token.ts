@@ -1,21 +1,22 @@
 import type { AxiosError } from 'axios';
 import { createMutation } from 'react-query-kit';
 
-import { client } from '../common';
 import { type TokenResponse } from './types';
+import { client } from '../common';
 
 type Variables = {
   username: string;
   password: string;
   userCategoryId: number;
-  tenantId: string;
+
+  
 };
 
 type Response = TokenResponse;
 
 export const useGetAuthToken = createMutation<Response, Variables, AxiosError>({
   mutationFn: async (variables) => {
-    const { username, password, userCategoryId, tenantId } = variables;
+    const { username, password, userCategoryId } = variables;
     
     return client({
       url: '/auth/token',
@@ -25,9 +26,7 @@ export const useGetAuthToken = createMutation<Response, Variables, AxiosError>({
         password,
         userCategoryId
       },
-      headers: {
-        "X-PrivateTenant": tenantId
-      }
+   
     }).then((response) => response.data);
   }
 });

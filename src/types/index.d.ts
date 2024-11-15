@@ -1,3 +1,20 @@
+
+interface UserCategories {
+  id: string;
+  categoryName: "PATIENT" | "DOCTOR" | "TECHNICIAN" | "USER";
+  status: boolean;
+}
+
+type LoginFormValues = z.infer<typeof LoginAuthSchema>
+
+
+
+interface UserCategoriesResponse {
+  status: number;
+  message: string;
+  data: UserCategories[];
+}
+
 interface Doctor {
     id: number;
     userId: number;

@@ -1,16 +1,16 @@
 import type { AxiosError } from 'axios';
 import { createQuery } from 'react-query-kit';
 
-import { client } from '../common';
+import { getAllDepartments } from './departments';
 
 type Response = DepartmentsResponse;
-type Variables = {
-  tenantId: string;
-};
+type Variables = undefined;
+
 
 export const useGetAllDepartments = createQuery<Response, Variables, AxiosError>({
   queryKey: ['departments'],
-  fetcher: () => {
-    return client.get(`/api/departments/all`).then((response) => response.data.posts);
+  fetcher: async() => {
+  const data = await getAllDepartments();
+  return data;
   },
 });

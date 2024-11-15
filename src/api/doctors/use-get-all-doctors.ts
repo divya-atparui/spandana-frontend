@@ -1,7 +1,7 @@
-import type { AxiosError } from 'axios';
-import { createQuery } from 'react-query-kit';
+import type { AxiosError } from "axios";
+import { createQuery } from "react-query-kit";
 
-import { client } from '../common';
+import { getAllDoctors } from "./doctors";
 
 type Response = DoctorsResponse;
 type Variables = {
@@ -9,13 +9,9 @@ type Variables = {
 };
 
 export const useGetAllDoctors = createQuery<Response, Variables, AxiosError>({
-  queryKey: ['doctors'],
-  fetcher: async({tenantId}) => {
-    const data =  client.get("/api/doctors/all",{
-      headers: {
-        "X-PrivateTenant": tenantId,
-      }
-    }).then((response) => response.data);
-    return data
+  queryKey: ["doctors"],
+  fetcher: async ({ tenantId }) => {
+    const data = await getAllDoctors(tenantId);
+    return data;
   },
 });

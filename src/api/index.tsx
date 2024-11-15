@@ -1,4 +1,4 @@
 export * from './auth';
-export * from './common';
+export * from './common/server';
 export * from './doctors';
 export * from './types';

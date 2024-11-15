@@ -27,7 +27,7 @@ export default function HeroSection() {
             People are exceptional for us and delivering exceptional services are our culture
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
-              <Link href="/appointments">
+              <Link href="/">
                 <Button className="bg-blue-500 hover:bg-blue-600 text-white px-8 py-6 text-lg">
                   Book Appointment
                 </Button>
