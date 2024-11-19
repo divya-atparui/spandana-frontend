@@ -47,14 +47,21 @@ export default function Navbar() {
     >
       <div className="container mx-auto px-4">
         <nav className="flex items-center justify-between h-20 gap-10">
-          <div className="bg-white rounded-lg border border-white-500/50 lg:border-0">
-            <Link href="/" className="flex items-center">
+          <div className="bg-blue-500/60 rounded-lg border border-blue-500/50 lg:border-0">
+            <Link href="/" className="flex items-center gap-5 ">
               <Image
                 src="/spandana_telugu.png"
                 alt="Spandana Hospital Logo"
                 width={180}
                 height={50}
-                className="h-12 w-auto"
+                className="h-16 w-auto bg-blue-300/30 p-1 rounded-lg"
+              />
+               <Image
+                src="/spandana_english.jpeg"
+                alt="Spandana Hospital Logo - English"
+                width={180}
+                height={50}
+                className="h-16 w-auto bg-blue-300/30 p-1 rounded-lg"
               />
             </Link>
           </div>

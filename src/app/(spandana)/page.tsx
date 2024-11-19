@@ -25,6 +25,7 @@ const LandingPage = () => {
       <StatsSection />
       <HeroDoctorsSection />
       <PartnerLogosSection />
+
     </div>
   );
 };

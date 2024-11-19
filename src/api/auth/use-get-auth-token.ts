@@ -5,6 +5,7 @@ import { type TokenResponse } from './types';
 import { client } from '../common';
 
 type Variables = {
+  
   username: string;
   password: string;
   userCategoryId: number;

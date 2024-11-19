@@ -23,7 +23,9 @@ export default function RootLayout({
       {/* <GoogleOAuthProvider clientId={clientId}> */}
       <main>
         <Navbar />
+      
         {children}
+        
         <Footer />
       </main>
       {/* </GoogleOAuthProvider> */}

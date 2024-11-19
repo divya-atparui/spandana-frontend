@@ -1,12 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  experimental: {
-    // The experimental feature "experimental.dynamicIO" can only be enabled when using the latest canary version of Next.js
-    // dynamicIO: true,
-    staleTimes: {
-      dynamic: 5000,
-    },
-  },
+  // experimental: {
+  //   // The experimental feature "experimental.dynamicIO" can only be enabled when using the latest canary version of Next.js
+  //   // dynamicIO: true,
+  //   staleTimes: {
+  //     dynamic: 5000,
+  //   },
+  // },
   typescript: {
     // !! WARN !!
     // Dangerously allow production builds to successfully complete even if
@@ -16,7 +16,8 @@ const nextConfig = {
   },
   output: "standalone",
   env: {
-    BACKEND_URL: process.env.BACKEND_URL
+    API_URL: process.env.API_URL,
+    NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL,
   },
   images: {
     formats: ["image/avif", "image/webp"],
